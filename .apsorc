@@ -1,0 +1,95 @@
+{
+  "entities": [
+    {
+      "name": "Product",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "name",
+          "type": "varchar",
+          "nullable": false
+        },
+        {
+          "name": "price",
+          "type": "numeric",
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "status",
+          "type": "varchar",
+          "nullable": false,
+          "default": "active"
+        }
+      ]
+    },
+    {
+      "name": "Order",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "order_date",
+          "type": "timestamp",
+          "nullable": false
+        },
+        {
+          "name": "total_amount",
+          "type": "numeric",
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "varchar",
+          "nullable": false,
+          "default": "pending"
+        }
+      ]
+    },
+    {
+      "name": "Customer",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "first_name",
+          "type": "varchar",
+          "nullable": false
+        },
+        {
+          "name": "last_name",
+          "type": "varchar",
+          "nullable": false
+        },
+        {
+          "name": "email",
+          "type": "varchar",
+          "nullable": false
+        },
+        {
+          "name": "phone",
+          "type": "varchar",
+          "nullable": true
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Product",
+      "to": "Order",
+      "type": "OneToMany"
+    },
+    {
+      "from": "Customer",
+      "to": "Order",
+      "type": "OneToMany"
+    }
+  ],
+  "_removedEntities": []
+}
